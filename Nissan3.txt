@@ -1,0 +1,76 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define forI(i,n)                   for(int i=0  ; i< n ;i++)
+#define forD(i,n)                   for(int i=n-1; i>=0 ;i--)
+#define forall(i,a,b)               for(int i=a  ; i<=b ;i++)
+#define foreach(v, c)               for( typeof( (c).begin()) v = (c).begin();  v != (c).end(); ++v)
+#define all(a)                      a.begin(), a.end()
+#define bigi  long long int
+
+int main()
+{
+    int num,sub;
+    cin>>num>>sub;
+      bigi total = 0,res = 0;
+    int flag = 0,counting=0;
+
+    vector<bigi> first,second,result;
+    for(int i=0;i<num;i++)
+    {
+        int take;
+        cin>>take;
+        first.push_back(take);
+
+
+    }
+    second = first;
+    for(int i=0;i<num;i++)
+    {
+        second.push_back(first[i]);
+
+    }
+
+    for(int i=num-sub+1;i<num+sub;i++)
+    {
+
+        counting=  counting + 1;
+        if((!flag)&&counting==sub)
+        {
+            total+=second[i];
+            result.push_back(total);
+            flag =1;
+            continue;
+
+        }
+        if(!flag)
+        {total+=second[i];
+            continue;
+        }
+        total+=second[i];
+        total-=second[i-sub];
+        if(flag)
+        {
+              result.push_back(total);
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+
+#define maxa(arr) *max_element(arr.begin(),arr.end())
+cout<<maxa(result)<<endl;
+
+
+
+
+
+
+
+}
